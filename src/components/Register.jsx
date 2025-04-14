@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import AuthSideInfo from "./AuthSideInfo";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
