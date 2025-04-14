@@ -4,6 +4,7 @@ import Link from "next/link";
 import AuthSideInfo from "./AuthSideInfo";
 import { useRouter } from "next/navigation";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const axiosSecure = useAxiosSecure()
@@ -20,7 +21,14 @@ const Login = () => {
     
         if (data.success) {
           localStorage.setItem('access-token', data.token);
-          alert("Login successful!");
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Login Success",
+            text: "Welcome back!",
+            showConfirmButton: false,
+            timer: 1500
+          });
           form.reset();
           router.push("/profile");
         } else {
