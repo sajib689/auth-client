@@ -25,7 +25,6 @@ const Login = () => {
             position: "top-center",
             icon: "success",
             title: "Login Success",
-            text: "Welcome back!",
             showConfirmButton: false,
             timer: 1500
           });

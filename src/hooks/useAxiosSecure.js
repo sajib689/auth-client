@@ -1,7 +1,7 @@
 import axios from 'axios';
 const useAxiosSecure = () => {
     const axiosSecure = axios.create({
-        baseURL: 'https://auth-server-pied.vercel.app',
+        baseURL: 'http://localhost:5000',
     });
     axiosSecure.interceptors.request.use((config) => {
         const token = localStorage.getItem('access-token');
