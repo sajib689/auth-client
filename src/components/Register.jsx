@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import AuthSideInfo from "./AuthSideInfo";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -15,7 +16,7 @@ const Register = () => {
         const number = form.number.value;
         const password = form.password.value;
        
-            fetch(`http://localhost:5000/api/v1/users/register`,{
+            fetch(`https://auth-server-pied.vercel.app/api/v1/users/register`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -23,7 +24,13 @@ const Register = () => {
                 body: JSON.stringify({ firstName, lastName, email, number, password })
             })
             .then( () => {
-                alert("Registration successful!");
+              Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Your Register Success",
+                showConfirmButton: false,
+                timer: 1500
+              });
                 form.reset();
                 router.push("/login");	
             })
